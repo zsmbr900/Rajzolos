@@ -63,6 +63,11 @@ namespace ConsoleApp1
             if (Console.ForegroundColor == 0) { Console.ForegroundColor = Console.ForegroundColor + 1; }
         }
 
+        static void hatterszinvalto()
+        {
+            Console.BackgroundColor = (ConsoleColor)(((int)Console.BackgroundColor + 1) % 16);
+            if (Console.BackgroundColor == 0) { Console.BackgroundColor = Console.BackgroundColor + 1; }
+        }
         static void Helpablak()
         {
             Console.ForegroundColor = ConsoleColor.White;
@@ -114,6 +119,8 @@ namespace ConsoleApp1
                 Console.Write("Erase - Delete");
                 Console.SetCursorPosition(5, 7);
                 Console.Write("Exit - Escape");
+                Console.SetCursorPosition(5, 9);
+                Console.Write("Background Color - End");
 
             }
         }
@@ -164,10 +171,11 @@ namespace ConsoleApp1
                             Environment.Exit(0);
                             break;
                         case ConsoleKey.Delete:
+                            Console.BackgroundColor = ConsoleColor.Black;
                             Console.Clear();
                             Keret();
                             Console.ForegroundColor = ConsoleColor.White;
-                            break;
+                        break;
                         case ConsoleKey.Spacebar:
                             Console.Write(' ');
                             break;
@@ -177,7 +185,12 @@ namespace ConsoleApp1
                         case ConsoleKey.PageDown:
                             colorChangeMode = !colorChangeMode;
                             break;
-                        case ConsoleKey.F1:
+                        case ConsoleKey.End:
+                            hatterszinvalto();
+                            Console.Clear();
+                            Keret();
+                        break;
+                    case ConsoleKey.F1:
                         helpMode = !helpMode;
                         if (helpMode)
                         {
