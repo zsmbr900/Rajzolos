@@ -13,6 +13,8 @@ namespace ConsoleApp1
         {
             colorChangeMode = false;
             Console.ForegroundColor = ConsoleColor.White;
+            Console.SetCursorPosition(5, 1);
+            Console.Write("Help - F1");
 
             for (int i = 0; i < width; i++)
             {
@@ -102,11 +104,23 @@ namespace ConsoleApp1
                 {
                     Console.Write('║');
                 }
+                Console.SetCursorPosition(40, 1);
+                Console.Write("Close - F1");
+                Console.SetCursorPosition(5, 3);
+                Console.Write("Rainbow Mode - PageUp");
+                Console.SetCursorPosition(35, 3);
+                Console.Write("Off - PageDown");
+                Console.SetCursorPosition(5, 5);
+                Console.Write("Erase - Delete");
+                Console.SetCursorPosition(5, 7);
+                Console.Write("Exit - Escape");
+
             }
         }
             static void Main(string[] args)
             {
-                Keret();
+            Console.Write("Help - F1");
+            Keret();
                 do
                 {
                     var key = Console.ReadKey().Key;
